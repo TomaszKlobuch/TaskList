@@ -18,12 +18,26 @@
     <li
     ${task.done ? " style=\"text-decoration: line-through\"" : ""}
     >
+      <button class="js-remove"> &#128465</button>
       ${task.content}
     </li>
     `;
     }
 
     document.querySelector(".js-list").innerHTML = htmlString;
+
+    const removeButtons = document.querySelectorAll(".js-remove");
+
+    const removeTask = (index) =>{
+      tasks.splice(index, 1);
+      render();
+    }
+
+    removeButtons.forEach((removeButtons, index) => {
+      removeButtons.addEventListener("click", () => {
+        removeTask(index);
+      });
+    });
   };
 
   const addNewTask = (newTaskContent) => {
