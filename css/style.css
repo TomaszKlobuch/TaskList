@@ -26,38 +26,3 @@ html {
   padding: 15px;
   border-bottom: 1px solid rgb(237, 237, 237);
 }
-
-.form {
-  padding: 15px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 15px;
-}
-
-@media (max-width: 767px) {
-  .form {
-      grid-template-columns: 1fr;
-  }}
-
-.form__input {
-  padding: 10px;
-  border: rgb(237, 237, 237) solid 1px;
-  font-weight: 300;
-  word-break: break-word;
-}
-
-.form__button {
-  padding: 10px;
-  background-color: hsl(180, 100%, 25%);
-  border: none;
-  color: white;
-  font-weight: 100;
-}
-
-.form__button:hover {
-  background-color: hsl(180, 100%, 30%);
-}
-
-.form__button:active {
-  background-color: hsl(180, 100%, 35%);
-}
