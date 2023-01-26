@@ -18,34 +18,48 @@
     <li
     ${task.done ? " style=\"text-decoration: line-through\"" : ""}
     >
-      <button class="js-remove"> &#128465</button>
+      <button class="js-done">✔</button>
       ${task.content}
+      <button class="js-remove"> &#128465</button>
     </li>
     `;
     }
 
     document.querySelector(".js-list").innerHTML = htmlString;
 
-    const removeButtons = document.querySelectorAll(".js-remove");
-
-    const removeTask = (index) =>{
+    const removeTask = (index) => {
       tasks.splice(index, 1);
       render();
-    }
+    };
+
+    const toggleTaskDone = (index) => {
+      tasks[index].done = !tasks[index].done;
+      render();
+    };
+
+    const removeButtons = document.querySelectorAll(".js-remove");
 
     removeButtons.forEach((removeButtons, index) => {
       removeButtons.addEventListener("click", () => {
         removeTask(index);
       });
     });
+
+    const toggleDoneButton = document.querySelectorAll(".js-done");
+
+    toggleDoneButton.forEach((toggleDoneButton, index) => {
+      toggleDoneButton.addEventListener("click", () => {
+        toggleTaskDone(index);
+      });
+    });
   };
 
-  const addNewTask = (newTaskContent) => {
+  function addNewTask(newTaskContent) {
     tasks.push({
       content: newTaskContent,
-    })
+    });
 
-    render()
+    render();
   }
 
   const onFormSubmit = (event) => {
