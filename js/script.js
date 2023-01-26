@@ -64,7 +64,7 @@
     event.preventDefault();
 
     const newTaskContent = document.querySelector(".js-form__input").value.trim();
-    const newTaskInput = document.querySelector(".js-form__input")
+    const newTaskInput = document.querySelector(".js-form__input");
 
     if (newTaskContent === "") {
       return;
