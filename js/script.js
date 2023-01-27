@@ -23,8 +23,12 @@
     `;
     }
 
-    document.querySelector(".js-list").innerHTML = htmlString;
+    document.querySelector(".js-list").innerHTML = htmlString;    
 
+    bindEvents()
+  };
+
+  const bindEvents = () => {
     const removeTask = (index) => {
       tasks.splice(index, 1);
       render();
@@ -52,7 +56,7 @@
     });
   };
 
-  function addNewTask(newTaskContent) {
+  const addNewTask = (newTaskContent) => {
     tasks.push({
       content: newTaskContent,
     });
@@ -63,8 +67,8 @@
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    const newTaskContent = document.querySelector(".js-form__input").value.trim();
     const newTaskInput = document.querySelector(".js-form__input");
+    const newTaskContent = newTaskInput.value.trim();
 
     if (newTaskContent === "") {
       return;
@@ -73,6 +77,7 @@
     addNewTask(newTaskContent);
     newTaskInput.value = "";
     newTaskInput.focus();
+    
   };
 
   const init = () => {
